@@ -1,30 +1,37 @@
-# Role-Based Access Control (RBAC) App
+# Role-Based Access Control (RBAC) UI in React
 
 ## **Demo App**
-[Demo Link](https://your-demo-link.com)
-
-## **Medium Story Version-2**
-[Medium Link](https://your-medium-link.com)
+[Demo Link](https://vrv-security-assignment.netlify.app/)
 
 ---
 
 ## **Description**
 
-The idea is simple: prevent the app from generating unnecessary routes by checking the current user role on each route. Rather than checking the role for every route, we generate only the routes that the user has access to.
+Role-Based Access Control (RBAC) UI in React is a secure and intuitive interface designed for managing user roles and permissions. It provides a login and registration system, allowing users to select their roles during registration. Based on the assigned roles, the UI controls access to different sections of the website, with admins having full access to manage users and roles, while managers have limited administrative access. This system ensures efficient role management and secure access to resources based on user permissions.
 
 ---
 
 ## **Benefits**
 
-- **Check route access only once**: Route access is checked when the parent route renders.
-- **Generate only accessible routes**: The app dynamically generates only the routes that the user has access to.
-- **Centralized roles and private routes configuration**: A single file to manage all role and route configurations.
-- **Ease of role management**: Adding/removing roles and route access is simplified.
-- **Synchronization between routes and navigation**: Ensures that the navigation menu reflects only available routes for the current user role.
-- **Single & Multiple role support**: Support for users with multiple roles or a single role.
+- **Role-based access control**: Grants different levels of access to users based on their assigned roles (Admin, Manager, etc.).
+- **User management**: Simplifies managing users with features like login, registration, and role assignment.
+- **Dynamic route generation**: Only generates routes that the user has permission to access, enhancing security and performance.
+- **Admin and Manager access control**: Admins have full control, while Managers have limited access to certain features.
+- **Responsive UI**: The design is responsive and adapts seamlessly to different screen sizes and devices.
+- **Soothing color scheme**: The UI uses a calming color palette to create a pleasant and easy-to-use experience.
+- **Simplified role management**: Adding or removing roles and modifying route access is straightforward.
+- **Centralized configuration**: A single file manages all roles, permissions, and route configurations, ensuring consistency and easy updates.
+- 
+---
+
+## **Credits/Inspiration**
+
+- Umair-khanzada rbac ui took website idea from there
+- Learned new concepts from youtube 
+- Used various ai tools to further inhance the website
 
 ---
 
-## **TODO**
+## **Developer**
 
-- Design the same approach for handling components based on role-based access.
+- ©Fully Developed and Deployed by Shaurya Soni using my own ideas and creativity
