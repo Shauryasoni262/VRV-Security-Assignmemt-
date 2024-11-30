@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ManageUsers = () => {
-  const [selectedRoles, setSelectedRoles] = useState({});
+  const [selectedRoles, setSelectedRoles] = useState(() => {
+    // Retrieve saved roles from localStorage when the component mounts
+    const savedRoles = localStorage.getItem("selectedRoles");
+    return savedRoles ? JSON.parse(savedRoles) : {};
+  });
+
   const navigate = useNavigate();
 
   const users = [
@@ -13,10 +18,19 @@ const ManageUsers = () => {
   ];
 
   const handleRoleChange = (e, userId) => {
-    setSelectedRoles({
+    const updatedRoles = {
       ...selectedRoles,
       [userId]: e.target.value,
-    });
+    };
+
+    setSelectedRoles(updatedRoles);
+    // Save the updated roles to localStorage
+    localStorage.setItem("selectedRoles", JSON.stringify(updatedRoles));
+  };
+
+  const handleUpdateRoles = () => {
+    console.log("Updated Roles:", selectedRoles);
+    alert("Roles updated successfully!");
   };
 
   const handleGoBack = () => {
@@ -57,6 +71,9 @@ const ManageUsers = () => {
               </div>
             ))}
           </div>
+          <button style={styles.updateButton} onClick={handleUpdateRoles}>
+            Update All Roles
+          </button>
         </div>
       </div>
     </div>
@@ -82,7 +99,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#fff", 
+    backgroundColor: "#fff",
     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
     zIndex: 100,
   },
@@ -106,9 +123,6 @@ const styles = {
     cursor: "pointer",
     transition: "background-color 0.3s",
   },
-  buttonHover: {
-    backgroundColor: "#0056b3",
-  },
   mainContent: {
     display: "flex",
     justifyContent: "center",
@@ -121,7 +135,7 @@ const styles = {
   box: {
     width: "100%",
     padding: "20px",
-    backgroundColor: "#e0f7e0", 
+    backgroundColor: "#e0f7e0",
     borderRadius: "8px",
     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
     textAlign: "center",
@@ -166,6 +180,17 @@ const styles = {
     border: "1px solid #ccc",
     borderRadius: "4px",
     outline: "none",
+  },
+  updateButton: {
+    marginTop: "20px",
+    padding: "10px 20px",
+    fontSize: "16px",
+    backgroundColor: "#28a745",
+    color: "#fff",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer",
+    transition: "background-color 0.3s",
   },
 };
 
